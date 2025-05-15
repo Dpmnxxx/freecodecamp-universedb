@@ -291,4 +291,18 @@ universe=> SELECT * FROM moon;
 
 universe=> ALTER TABLE galaxy ADD COLUMN rotation_speed INT NOT NULL DEFAULT(100);
 ALTER TABLE
+universe=> ALTER TABLE blackhole ADD COLUMN name VARCHAR(255) NOT NULL UNIQUE;
+ALTER TABLE
+universe=> INSERT INTO blackhole(name) VALUES('bh1');
+INSERT 0 1
+universe=> INSERT INTO blackhole(name) VALUES('bh2');
+INSERT 0 1
+universe=> INSERT INTO blackhole(name) VALUES('bh3');
+INSERT 0 1
+universe=> ALTER TABLE galaxy ADD CONSTRAINT name_unique UNIQUE (name);
+ALTER TABLE
+universe=> ALTER TABLE star ADD CONSTRAINT name_unique_star UNIQUE (name);
+ALTER TABLE
+universe=> ALTER TABLE planet ADD CONSTRAINT name_unique_planet UNIQUE (name);
+ALTER TABLE
 universe=> 
